@@ -321,7 +321,7 @@ This study measured how configuration choices determine the availability of a Ku
 
 \section*{AI Tool Use and Originality Declaration}
 \label{sec:ai_declaration}
-AI-assisted tools (Claude, Anthropic) were used extensively in this project: for planning the experiments and wording the research question, suggesting documentation sources, writing and debugging the Kubernetes manifests, experiment scripts and analysis code, diagnosing the measurement-path and HPA overload issues, fetching list prices from the official Azure Retail Prices API, and drafting the text of this report, including the interpretation, discussion and conclusion. The student chose the topic, ran all experiments on their own machine, checked every reported number against the raw data in the repository, and reviewed and approved the final text. All numbers come from real runs. The student accepts full responsibility for the accuracy, originality, reproducibility and integrity of the submitted work.
+AI-assisted tools (Claude, Anthropic) were used extensively in this project: for planning the experiments and wording the research question, suggesting documentation sources, writing and debugging the Kubernetes manifests, experiment scripts and analysis code, diagnosing the measurement-path and HPA overload issues, fetching list prices from the official Azure Retail Prices API, and drafting the text of this report, including the interpretation, discussion and conclusion. The student chose the topic, ran all experiments on their own machine, checked every reported number against the raw data in the repository, and reviewed and approved the final text. All numbers come from real runs. The student accepts full responsibility for the accuracy, originality, reproducibility and integrity of the submitted work. Table~\ref{tab:ai_use} summarises the level of AI support per project stage.
 
 \begin{table}[htbp]
 	\caption{AI Use Disclosure Summary}
@@ -363,7 +363,7 @@ AI-assisted tools (Claude, Anthropic) were used extensively in this project: for
 \appendix
 \section{Code Repository}
 \label{app:code}
-Manifests, scripts, raw results and analysis code: \url{https://github.com/demcan15/sen421-k8s-orchestration}.
+Manifests, scripts, raw results and analysis code: \url{https://github.com/demcan15/sen421-k8s-orchestration}. Listing~\ref{lst:hardened} shows the probe and update settings of the hardened Deployment.
 
 \begin{lstlisting}[language=bash, caption={Hardened Deployment: probes and update strategy (excerpt of k8s/api-hardened.yaml)}, label={lst:hardened}]
 replicas: 3

@@ -112,7 +112,24 @@ The cluster consists of one control-plane and two worker nodes. The API is expos
 \end{figure}
 
 \subsection{Alternatives Compared}
-Table~\ref{tab:alternatives} lists the two alternatives of each experiment. In E1, the baseline is the simplest possible Deployment, one replica without probes, and the hardened variant has three replicas spread over the two workers, readiness and liveness probes, and a 3\,s \texttt{preStop} delay so that a terminating pod is removed from the Service before it stops. E2 isolates the update strategy: both variants use the hardened pod template and differ only in \texttt{strategy}. E3 compares two HPA targets on the same Deployment (1 to 10 replicas, scale-down window shortened to 60\,s so that scale-in fits into a run).
+Table~\ref{tab:alternatives} lists the two alternatives of each experiment. In E1, the baseline is the simplest possible Deployment, one replica without probes, and the hardened variant has three replicas spread over the two workers, readiness and liveness probes, and a 3\,s \texttt{preStop} delay so that a terminating pod is removed from the Service before it stops (Listing~\ref{lst:hardened}). E2 isolates the update strategy: both variants use the hardened pod template and differ only in \texttt{strategy}. E3 compares two HPA targets on the same Deployment (1 to 10 replicas, scale-down window shortened to 60\,s so that scale-in fits into a run).
+
+\begin{lstlisting}[language=bash, float=tb, caption={Excerpt of k8s/api-hardened.yaml}, label={lst:hardened}]
+replicas: 3
+strategy:
+  type: RollingUpdate
+  rollingUpdate: { maxSurge: 1, maxUnavailable: 0 }
+readinessProbe:
+  httpGet: { path: /health, port: 8080 }
+  periodSeconds: 1
+  failureThreshold: 1
+livenessProbe:
+  httpGet: { path: /health, port: 8080 }
+  initialDelaySeconds: 10
+  periodSeconds: 5
+lifecycle:
+  preStop: { exec: { command: ["sleep", "3"] } }
+\end{lstlisting}
 
 \begin{table}[htbp]
 	\caption{Alternatives Compared in Each Experiment}
@@ -366,26 +383,7 @@ AI-assisted tools (Claude, Anthropic) were used extensively in this project: for
 \appendix
 \section{Code Repository}
 \label{app:code}
-Manifests, scripts, raw results and analysis code: \url{https://github.com/demcan15/sen421-k8s-orchestration}. Listing~\ref{lst:hardened} shows the probe and update settings of the hardened Deployment.
+Manifests, scripts, raw results and analysis code: \url{https://github.com/demcan15/sen421-k8s-orchestration}.
 
-\medskip
-\noindent\begin{minipage}{\linewidth}
-\begin{lstlisting}[language=bash, caption={Excerpt of k8s/api-hardened.yaml}, label={lst:hardened}]
-replicas: 3
-strategy:
-  type: RollingUpdate
-  rollingUpdate: { maxSurge: 1, maxUnavailable: 0 }
-readinessProbe:
-  httpGet: { path: /health, port: 8080 }
-  periodSeconds: 1
-  failureThreshold: 1
-livenessProbe:
-  httpGet: { path: /health, port: 8080 }
-  initialDelaySeconds: 10
-  periodSeconds: 5
-lifecycle:
-  preStop: { exec: { command: ["sleep", "3"] } }
-\end{lstlisting}
-\end{minipage}
 
 \end{document}

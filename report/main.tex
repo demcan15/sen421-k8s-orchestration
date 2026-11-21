@@ -84,6 +84,9 @@ The cluster consists of one control-plane and two worker nodes. The API is expos
 
 \begin{figure}[htbp]
 	\centering
+	% Uses figures/architecture.pdf (exported from figures/architecture.drawio) if it exists,
+	% otherwise falls back to the TikZ drawing below.
+	\IfFileExists{figures/architecture.pdf}{\includegraphics[width=\linewidth]{architecture}}{%
 	\begin{tikzpicture}[font=\scriptsize, >=Stealth,
 		box/.style={draw, rounded corners=2pt, align=center, minimum height=0.75cm, inner sep=3pt, fill=white}]
 		\node[box, fill=gray!12] (cl) at (0,0) {probe.py (10 req/s) / k6 load\\containers on Docker network \texttt{kind}};
@@ -104,7 +107,7 @@ The cluster consists of one control-plane and two worker nodes. The API is expos
 		\draw[->, dashed] (hpa) -- node[right] {scales} (w2);
 		\node[draw, dashed, rounded corners, fit=(np)(w1)(w2)(rs)(ms)(hpa), inner sep=5pt,
 			label={[font=\scriptsize\itshape]below:kind cluster \texttt{sen421}: 3 nodes as Docker containers on one host}] {};
-	\end{tikzpicture}
+	\end{tikzpicture}}
 	\caption{Architecture of the test setup.}
 	\label{fig:architecture}
 \end{figure}

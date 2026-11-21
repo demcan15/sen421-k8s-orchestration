@@ -1,0 +1,8 @@
+{
+  "variant": "hardened",
+  "run": 3,
+  "victim": "api-f469899-gdjm5",
+  "kill_epoch": 1794910634.645,
+  "replacement_ready_epoch": 1794910639.107,
+  "k8s_recovery_s": 4.462
+}

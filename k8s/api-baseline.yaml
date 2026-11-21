@@ -1,0 +1,25 @@
+# Alternative A (baseline): 1 replica, no probes, Recreate strategy.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels: { app: api }
+  template:
+    metadata:
+      labels: { app: api }
+    spec:
+      containers:
+        - name: api
+          image: sen421-api:v1
+          imagePullPolicy: IfNotPresent
+          ports: [{ containerPort: 8080 }]
+          env:
+            - { name: STARTUP_DELAY_S, value: "3" }
+          resources:
+            requests: { cpu: 100m, memory: 64Mi }
+            limits: { cpu: 500m, memory: 256Mi }

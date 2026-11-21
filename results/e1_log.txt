@@ -1,0 +1,6 @@
+﻿{'variant': 'baseline', 'run': 1, 'victim': 'api-58d5d789f7-6cnls', 'kill_epoch': 1794910316.78, 'replacement_ready_epoch': 1794910317.581, 'k8s_recovery_s': 0.801}
+{'variant': 'hardened', 'run': 1, 'victim': 'api-f469899-dfkj5', 'kill_epoch': 1794910379.47, 'replacement_ready_epoch': 1794910383.884, 'k8s_recovery_s': 4.415}
+{'variant': 'baseline', 'run': 2, 'victim': 'api-58d5d789f7-2bwzz', 'kill_epoch': 1794910445.41, 'replacement_ready_epoch': 1794910446.201, 'k8s_recovery_s': 0.791}
+{'variant': 'hardened', 'run': 2, 'victim': 'api-f469899-544zs', 'kill_epoch': 1794910507.103, 'replacement_ready_epoch': 1794910511.489, 'k8s_recovery_s': 4.386}
+{'variant': 'baseline', 'run': 3, 'victim': 'api-58d5d789f7-sc5kh', 'kill_epoch': 1794910571.893, 'replacement_ready_epoch': 1794910572.68, 'k8s_recovery_s': 0.787}
+{'variant': 'hardened', 'run': 3, 'victim': 'api-f469899-gdjm5', 'kill_epoch': 1794910634.645, 'replacement_ready_epoch': 1794910639.107, 'k8s_recovery_s': 4.462}

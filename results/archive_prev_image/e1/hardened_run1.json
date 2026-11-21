@@ -1,0 +1,8 @@
+{
+  "variant": "hardened",
+  "run": 1,
+  "victim": "api-f469899-bzxz6",
+  "kill_epoch": 1794906893.186,
+  "replacement_ready_epoch": 1794906898.239,
+  "k8s_recovery_s": 5.052
+}

@@ -1,0 +1,8 @@
+{
+  "variant": "hpa80",
+  "run": 1,
+  "load_s": 180,
+  "idle_s": 180,
+  "rate_rps": 7,
+  "load_start_epoch": 1795107954.842
+}

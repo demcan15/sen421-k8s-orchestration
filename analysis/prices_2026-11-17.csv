@@ -1,0 +1,7 @@
+item,region,sku,price_usd,unit,source,accessed
+vm_node,germanywestcentral,Standard_B2s (Linux),0.048,hour,"Azure Retail Prices API https://prices.azure.com/api/retail/prices (serviceName='Virtual Machines', armSkuName='Standard_B2s')",2026-11-17
+vm_node_alt,germanywestcentral,Standard_D2s_v5 (Linux),0.115,hour,"Azure Retail Prices API (armSkuName='Standard_D2s_v5')",2026-11-17
+aks_control_plane_free,germanywestcentral,Free tier,0.0,hour,"Azure Kubernetes Service pricing page (Free tier: no control-plane charge, no SLA)",2026-11-17
+aks_control_plane_standard,germanywestcentral,Standard tier (Uptime SLA),0.10,hour,"Azure Retail Prices API (serviceName='Azure Kubernetes Service', meterName='Standard Uptime SLA')",2026-11-17
+os_disk,germanywestcentral,E10 LRS Standard SSD 128 GiB,9.60,month,"Azure Retail Prices API (serviceName='Storage', skuName='E10 LRS')",2026-11-17
+public_ip,germanywestcentral,Standard IPv4 Static Public IP,0.005,hour,"Azure Retail Prices API (meterName='Standard IPv4 Static Public IP')",2026-11-17

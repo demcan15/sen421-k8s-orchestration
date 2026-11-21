@@ -1,0 +1,6 @@
+﻿hpa80 1 done; last sample: 1794908095.766,359.5,1,1,1,3
+hpa50 1 done; last sample: 1794908508.169,360.0,1,1,1,3
+hpa80 2 done; last sample: 1794908919.291,359.6,1,1,1,3
+hpa50 2 done; last sample: 1794909331.183,359.4,1,1,1,3
+hpa80 3 done; last sample: 1794909742.959,359.1,1,1,1,3
+hpa50 3 done; last sample: 1794910153.499,358.0,1,1,1,3

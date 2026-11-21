@@ -1,0 +1,7 @@
+{
+  "variant": "rolling",
+  "run": 3,
+  "update_start_epoch": 1794911105.27,
+  "rollout_done_epoch": 1794911117.513,
+  "rollout_s": 12.244
+}

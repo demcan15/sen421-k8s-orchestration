@@ -1,0 +1,313 @@
+\documentclass[conference,a4paper]{IEEEtran}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{cite}
+
+% Code and configuration listing style
+\lstset{
+	basicstyle=\ttfamily\footnotesize,
+	keywordstyle=\color{blue}\bfseries,
+	commentstyle=\color{gray}\itshape,
+	stringstyle=\color{red},
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	numbersep=5pt,
+	frame=single,
+	breaklines=true,
+	captionpos=b,
+	tabsize=4
+}
+
+\begin{document}
+	
+	\title{[Your Project Title Here]\\
+		{\footnotesize SEN421 --- Cloud Architecture and Services, Course Project, Fall 2026\\
+			Istanbul Ayd\i n University}
+	}
+	
+	\author{\IEEEauthorblockN{[Student Full Name]}
+		\IEEEauthorblockA{\textit{Department of Computer Engineering}\\
+			\textit{Istanbul Ayd\i n University}\\
+			Istanbul, Turkey \\
+			Student ID: [XXXXXXXXX] \\
+			student@stu.aydin.edu.tr}
+	}
+	
+	\maketitle
+	
+	\begin{abstract}
+		Provide a concise summary of your project (150--250 words). State the question you addressed, the topic number and part (A or B), what you built or analyzed, the alternatives you compared, the key results including cost, and your main conclusion. Do not use symbols, special characters, footnotes, or math in the abstract.
+	\end{abstract}
+	
+	\begin{IEEEkeywords}
+		cloud computing, [keyword 2], [keyword 3], [keyword 4], [keyword 5]
+	\end{IEEEkeywords}
+	
+	\begin{center}
+	\fbox{\begin{minipage}{0.92\linewidth}
+	\textbf{Template note.} Replace all instructional text, examples, and placeholders before submission. The whole report, including references and any appendix, must fit in \textbf{at most 10 pages} (ideally 6--8). The final report must contain your own work and must include the AI Tool Use and Originality Declaration before the References.
+	\end{minipage}}
+	\end{center}
+	
+	\section{Introduction}
+	\label{sec:introduction}
+	
+	Describe the problem you are addressing. Why does it matter to an organization using the cloud? Clearly state your specific question or objective.
+	
+	\textbf{Guidelines:}
+	\begin{itemize}
+		\item Define the problem clearly and concisely.
+		\item Explain why it is relevant in practice.
+		\item State your specific question. A good question has a measurable answer.
+		\item Briefly mention your approach and the alternatives you compare.
+		\item Outline the structure of the rest of the paper.
+		\item Make sure the motivation and question are your own, not copied from an AI-generated outline.
+	\end{itemize}
+	
+	\textit{Example: ``In this project, we investigate whether moving a small web API from a virtual machine to a platform service reduces operating effort and monthly cost for a workload of 10,000 requests per day. We deploy the same application both ways and compare deployment time, response time, management responsibilities, and cost.''}
+	
+	\section{Background and Related Work}
+	\label{sec:related_work}
+	
+	Briefly explain the cloud concepts your project relies on (for example, service models, autoscaling, or RPO and RTO), then review relevant prior work and documentation.
+	
+	\textbf{Requirements:}
+	\begin{itemize}
+		\item \textbf{Part A (hands-on):} cite at least 4--6 references, including official provider documentation.
+		\item \textbf{Part B (design and analysis):} cite at least 6--8 references.
+	\end{itemize}
+	
+	Discuss how your work relates to existing studies. For example: ``The NIST definition~\cite{b1} lists rapid elasticity as an essential characteristic of cloud computing. West~\cite{b2} describes autoscaling groups as the usual way to achieve it, but does not quantify how long users experience slow responses while new machines start, which we measure in this work.''
+	
+	Do not cite sources that you have not read. If AI tools helped you find sources, verify each one in the original publication and write the synthesis yourself.
+	
+	\section{System Design / Case Description}
+	\label{sec:design}
+	
+	\textbf{Part A:} present your architecture and explain each component and why you chose it. \textbf{Part B:} describe the organization or workload you study, its requirements, and its constraints.
+	
+	\subsection{Architecture}
+	Include an architecture diagram drawn by you (for example with draw.io, using the providers' official icons). Show the users, the network path, compute, storage, and any managed services. Refer to it as Fig.~\ref{fig:architecture}.
+	
+	\begin{figure}[htbp]
+		\centerline{\rule{0.35\textwidth}{3cm}}
+		\caption{Replace with your architecture diagram. Label every component and show the direction of requests.}
+		\label{fig:architecture}
+	\end{figure}
+	
+	\subsection{Alternatives Compared}
+	Name the provider or platform you used and briefly say why (for example, the free offer you could access). Any provider is acceptable; your grade does not depend on which one you chose. State clearly the alternatives you compare --- at least two. For example: IaaS vs.\ PaaS vs.\ FaaS; three machine sizes; rehost vs.\ replatform; two providers.
+	
+	\subsection{Requirements and Responsibilities}
+	List the requirements the design must meet (performance, availability, security, legal such as KVKK) and state, for each alternative, which parts the provider is responsible for and which parts you are.
+	
+	\section{Methodology}
+	\label{sec:methodology}
+	
+	\subsection{Environment (Part A)}
+	Describe the test environment precisely so that someone else could repeat it:
+	
+	\begin{table}[htbp]
+		\caption{Experimental Environment}
+		\begin{center}
+			\footnotesize
+			\begin{tabular}{|l|l|}
+				\hline
+				\textbf{Property} & \textbf{Value} \\
+				\hline
+				Provider and region & e.g., [provider], [region] \\
+				\hline
+				Machine size(s) & e.g., 2 vCPU, 4 GB memory \\
+				\hline
+				Operating system & e.g., Ubuntu 24.04 LTS \\
+				\hline
+				Application & e.g., Flask API, 3 endpoints \\
+				\hline
+				Load test tool & e.g., k6, 50 virtual users \\
+				\hline
+				Test duration & e.g., 10 minutes per run \\
+				\hline
+				Repetitions & at least 3 per configuration \\
+				\hline
+			\end{tabular}
+			\label{tab:environment}
+		\end{center}
+	\end{table}
+	
+	\subsection{Measurements (Part A)}
+	List what you measured, with units, and how: for example, deployment time (minutes), median and 95th-percentile response time (milliseconds), requests per second, time to scale out (seconds), achieved RPO and RTO (minutes), and actual cost (USD). Explain how you tracked cost (for example, the provider's cost report, filtered by a resource tag).
+	
+	\subsection{Analysis Method and Assumptions (Part B)}
+	Describe how you built your model or comparison: the formula or scoring method, every assumption (for example, requests per day, hours of use per month, growth rate), and the source and access date of every price you used.
+	
+	\subsection{Reproducibility and Verification}
+	State how an evaluator can repeat your work: the repository link, the scripts or configuration files, software versions, and the steps to run them. If any AI-assisted code or configuration was used, you must have reviewed, tested, and understood it. You remain responsible for every line you submit and for every number you report.
+	
+	\section{Results}
+	\label{sec:results}
+	
+	\subsection{Performance Results}
+	Present your measurements in tables and figures. Report the average and the spread (for example, the standard deviation) over your repeated runs, not a single run.
+	
+	\begin{table}[htbp]
+		\caption{Comparison of Alternatives (Illustrative Values --- Replace)}
+		\begin{center}
+			\footnotesize
+			\begin{tabular}{|l|c|c|c|}
+				\hline
+				\textbf{Alternative} & \textbf{Median (ms)} & \textbf{Req/s} & \textbf{USD/mo} \\
+				\hline
+				IaaS (VM) & 48 $\pm$ 3 & 310 & 7.6 \\
+				\hline
+				PaaS & 55 $\pm$ 4 & 280 & 13.1 \\
+				\hline
+				FaaS & 92 $\pm$ 21 & 190 & 2.4 \\
+				\hline
+			\end{tabular}
+			\label{tab:results}
+		\end{center}
+	\end{table}
+	
+	Use the abbreviation ``Fig.~\ref{fig:results}'' when referring to figures, even at the beginning of a sentence.
+	
+	\begin{figure}[htbp]
+		\centerline{\rule{0.35\textwidth}{3cm}}
+		\caption{Replace with your chart. Label both axes with full quantity names and units, for example ``Response time (ms)''.}
+		\label{fig:results}
+	\end{figure}
+	
+	\subsection{Cost Results}
+	Give a cost breakdown for each alternative: compute, storage, data transfer out, and any managed services. For Part A, also state the \textbf{actual total cost} of your experiments and confirm that all resources were deleted.
+	
+	\begin{table}[htbp]
+		\caption{Monthly Cost Breakdown (Illustrative Values --- Replace)}
+		\begin{center}
+			\begin{tabular}{|l|c|c|}
+				\hline
+				\textbf{Cost item} & \textbf{Alternative 1} & \textbf{Alternative 2} \\
+				\hline
+				Compute & \ldots & \ldots \\
+				\hline
+				Storage & \ldots & \ldots \\
+				\hline
+				Data transfer out & \ldots & \ldots \\
+				\hline
+				Managed services & \ldots & \ldots \\
+				\hline
+				\textbf{Total (USD)} & \ldots & \ldots \\
+				\hline
+			\end{tabular}
+			\label{tab:cost}
+		\end{center}
+	\end{table}
+	
+	\subsection{Comparison of Alternatives}
+	Compare the alternatives directly. Which is best for your case, on which criterion? Is there a trade-off, for example lower cost but slower response?
+	
+	\section{Discussion}
+	\label{sec:discussion}
+	
+	Provide a critical analysis of your work:
+	\begin{itemize}
+		\item Which alternative is best for this case, and \textbf{why}?
+		\item What would change at a larger scale, or for a different workload?
+		\item \textbf{Security and shared responsibility:} what did the provider protect, and what did you have to protect?
+		\item What were the \textbf{limitations} of your study (free-tier machines, short tests, a single region, assumed prices)?
+		\item Were there any \textbf{surprising findings}?
+		\item \textbf{Legal and ethical points} where relevant, such as data residency under KVKK.
+	\end{itemize}
+	
+	The discussion must reflect your own interpretation. AI tools may be used for limited language polishing, but the argument, interpretation, limitations, and recommendations must be written and justified by you.
+	
+	\section{Conclusion and Future Work}
+	\label{sec:conclusion}
+	
+	Summarize your key findings concisely:
+	\begin{itemize}
+		\item What did you find, in one or two sentences with the key numbers?
+		\item What would you recommend to an organization in this situation?
+		\item What would you do differently with more time or budget?
+		\item Suggest concrete directions for future work.
+	\end{itemize}
+	
+	\section*{AI Tool Use and Originality Declaration}
+	\label{sec:ai_declaration}
+	
+	This section is required in every submitted report. Keep the version that applies to your project and delete the other example.
+	
+	\textbf{Example if no AI tools were used:} No generative AI or AI-assisted tools were used to generate the submitted report text, code, configuration, analysis, figures, interpretations, or references.
+	
+	\textbf{Example if limited AI support was used:} AI-assisted tools were used only for limited support, such as concept clarification, debugging, configuration review, grammar improvement, and/or LaTeX formatting. The project idea, design, experiments, analysis, interpretation of results, and final report wording were reviewed, verified, and finalized by the student. The student accepts full responsibility for the accuracy, originality, reproducibility, and integrity of the submitted work.
+	
+	If AI tools were used, complete Table~\ref{tab:ai_use}. Use the 0--6 scale as follows: 0 = not used; 1 = minimal hints; 2 = low support with student-authored final content; 3 = regular support for specific sub-tasks with critical student review; 4 = high support for critical sub-tasks; 5 = very high AI contribution; 6 = AI-led work. Levels 5--6 may indicate that the work falls outside acceptable use for this project and may negatively affect the grade.
+	
+	\begin{table}[htbp]
+		\caption{AI Use Disclosure Summary}
+		\label{tab:ai_use}
+		\centering
+		\footnotesize
+		\begin{tabular}{|p{0.35\linewidth}|c|p{0.38\linewidth}|}
+			\hline
+			\textbf{Project Stage} & \textbf{Level} & \textbf{Brief Description} \\
+			\hline
+			Topic and question & [0--6] & [Explain briefly] \\
+			\hline
+			Literature and documentation search & [0--6] & [Explain briefly] \\
+			\hline
+			Design, deployment, and configuration & [0--6] & [Explain briefly] \\
+			\hline
+			Measurement, cost analysis, and modeling & [0--6] & [Explain briefly] \\
+			\hline
+			Writing, editing, and LaTeX formatting & [0--6] & [Explain briefly] \\
+			\hline
+			Interpretation, discussion, and conclusion & [0--6] & [Explain briefly] \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	Do not list an AI tool as an author or as a source of factual claims. AI-suggested prices, service limits, references, code, or numbers must be checked against official sources before inclusion. The instructor may ask you to explain your work orally, repeat part of an experiment, or show a record of prompts and outputs.
+	
+	\begin{thebibliography}{00}
+		
+		\bibitem{b1} P.~Mell and T.~Grance, ``The NIST definition of cloud computing,'' National Institute of Standards and Technology, Gaithersburg, MD, USA, NIST Special Publication 800-145, 2011.
+		
+		\bibitem{b2} J.~West, \textit{CompTIA Cloud+ Guide to Cloud Computing}, 2nd~ed. Boston, MA, USA: Cengage, 2024.
+		
+		\bibitem{b3} [Provider name], ``[Title of the documentation page],'' [Name of the documentation site]. [Online]. Available: [URL]. [Accessed: Day Month Year].
+		
+	\end{thebibliography}
+	
+	\appendix
+	
+	\section{Code Repository}
+	\label{app:code}
+	
+	Scripts and configuration files are available at: \url{https://github.com/yourusername/project-repo}
+	
+	The appendix counts toward the 10-page limit. Include only short, important snippets, such as the script you used to run repeated measurements:
+	
+	\begin{lstlisting}[language=bash, caption={Example: Repeated Load Test Runs}, label={lst:runs}]
+# Run the same load test 3 times and save each result
+for run in 1 2 3; do
+  k6 run --vus 50 --duration 10m load_test.js \
+     --summary-export="results_run${run}.json"
+  sleep 120   # let the system return to idle
+done
+	\end{lstlisting}
+	
+	Never include access keys, passwords, or private keys in the report, the repository, or the slides.
+	
+	\section{Additional Figures and Tables}
+	\label{app:additional}
+	
+	Include supplementary material here only if it fits within the page limit (for example, screenshots of the deployment, extended result tables, or the full cost model).
+	
+\end{document}

@@ -1,0 +1,6 @@
+﻿{'variant': 'recreate', 'run': 1, 'update_start_epoch': 1794907227.596, 'rollout_done_epoch': 1794907235.976, 'rollout_s': 8.379}
+{'variant': 'rolling', 'run': 1, 'update_start_epoch': 1794907308.936, 'rollout_done_epoch': 1794907322.44, 'rollout_s': 13.503}
+{'variant': 'recreate', 'run': 2, 'update_start_epoch': 1794907390.316, 'rollout_done_epoch': 1794907398.301, 'rollout_s': 7.986}
+{'variant': 'rolling', 'run': 2, 'update_start_epoch': 1794907470.36, 'rollout_done_epoch': 1794907483.596, 'rollout_s': 13.236}
+{'variant': 'recreate', 'run': 3, 'update_start_epoch': 1794907550.357, 'rollout_done_epoch': 1794907558.453, 'rollout_s': 8.096}
+{'variant': 'rolling', 'run': 3, 'update_start_epoch': 1794907631.379, 'rollout_done_epoch': 1794907643.998, 'rollout_s': 12.619}

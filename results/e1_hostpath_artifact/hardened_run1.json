@@ -1,0 +1,8 @@
+{
+  "variant": "hardened",
+  "run": 1,
+  "victim": "api-f469899-47z6k",
+  "t_kill_s": 5.0,
+  "t_replacement_ready_s": 9.543,
+  "recovery_s": 4.543
+}

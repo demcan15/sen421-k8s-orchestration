@@ -1,0 +1,8 @@
+{
+  "variant": "baseline",
+  "run": 1,
+  "victim": "api-58d5d789f7-6cnls",
+  "kill_epoch": 1794910316.78,
+  "replacement_ready_epoch": 1794910317.581,
+  "k8s_recovery_s": 0.801
+}

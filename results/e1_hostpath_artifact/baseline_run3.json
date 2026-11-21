@@ -1,0 +1,8 @@
+{
+  "variant": "baseline",
+  "run": 3,
+  "victim": "api-58d5d789f7-zf4wv",
+  "t_kill_s": 5.0,
+  "t_replacement_ready_s": 5.796,
+  "recovery_s": 0.795
+}

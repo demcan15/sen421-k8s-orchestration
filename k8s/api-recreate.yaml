@@ -1,0 +1,44 @@
+# E2 Alternative A: identical to api-hardened.yaml (3 replicas, probes) but with the
+# Recreate strategy, so only the update strategy differs between the two runs.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels: { app: api }
+  template:
+    metadata:
+      labels: { app: api }
+    spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels: { app: api }
+      containers:
+        - name: api
+          image: sen421-api:v1
+          imagePullPolicy: IfNotPresent
+          ports: [{ containerPort: 8080 }]
+          env:
+            - { name: STARTUP_DELAY_S, value: "3" }
+          readinessProbe:
+            httpGet: { path: /health, port: 8080 }
+            periodSeconds: 1
+            failureThreshold: 1
+          livenessProbe:
+            httpGet: { path: /health, port: 8080 }
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          lifecycle:
+            # Give endpoints time to drop the pod before it stops accepting traffic.
+            preStop:
+              exec: { command: ["sleep", "3"] }
+          resources:
+            requests: { cpu: 100m, memory: 64Mi }
+            limits: { cpu: 500m, memory: 256Mi }

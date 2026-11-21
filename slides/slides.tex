@@ -34,6 +34,7 @@
 	\begin{columns}[T]
 		\column{0.55\textwidth}
 		\centering
+		\IfFileExists{figures/architecture.pdf}{\includegraphics[width=\linewidth]{architecture}}{%
 		\begin{tikzpicture}[font=\scriptsize, >=Stealth,
 			box/.style={draw, rounded corners=2pt, align=center, minimum height=0.65cm, inner sep=3pt, fill=white}]
 			\node[box, fill=gray!12] (cl) at (0,0) {probe (10 req/s) / k6};
@@ -49,7 +50,7 @@
 			\draw[->, dashed] (hpa) -- (w2);
 			\node[draw, dashed, rounded corners, fit=(np)(w1)(w2)(rs)(hpa), inner sep=4pt,
 				label={[font=\scriptsize\itshape]below:kind: 3 nodes as Docker containers}] {};
-		\end{tikzpicture}
+		\end{tikzpicture}}
 		\column{0.45\textwidth}
 		\small
 		\begin{itemize}

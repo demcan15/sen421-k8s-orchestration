@@ -31,9 +31,8 @@
 
 \begin{document}
 
-\title{How Much Downtime Do Replicas, Probes and Rolling Updates Remove? A Measurement Study on a Local Kubernetes Cluster\\
-	{\footnotesize SEN421 --- Cloud Architecture and Services, Course Project, Fall 2026\\
-		Istanbul Ayd\i n University}
+\title{How Much Downtime Do Replicas, Probes and Rolling Updates Remove? A Measurement Study on a Local Kubernetes Cluster\\[10pt]
+	{\normalsize SEN421 --- Cloud Architecture and Services, Course Project, Fall 2026}
 }
 
 \author{\IEEEauthorblockN{Ahmet Seyid Bilal Demircan}
@@ -120,7 +119,7 @@ Table~\ref{tab:alternatives} lists the two alternatives of each experiment. In E
 	\label{tab:alternatives}
 	\centering
 	\footnotesize
-	\begin{tabular}{|p{0.13\linewidth}|p{0.35\linewidth}|p{0.35\linewidth}|}
+	\begin{tabular}{|>{\raggedright\arraybackslash}p{0.13\linewidth}|>{\raggedright\arraybackslash}p{0.35\linewidth}|>{\raggedright\arraybackslash}p{0.35\linewidth}|}
 		\hline
 		\textbf{Exp.} & \textbf{Alternative A} & \textbf{Alternative B} \\
 		\hline
@@ -149,7 +148,7 @@ Table~\ref{tab:environment} lists the environment. Every alternative was run thr
 	\label{tab:environment}
 	\centering
 	\footnotesize
-	\begin{tabular}{|l|p{0.55\linewidth}|}
+	\begin{tabular}{|l|>{\raggedright\arraybackslash}p{0.55\linewidth}|}
 		\hline
 		\textbf{Property} & \textbf{Value} \\
 		\hline
@@ -223,6 +222,7 @@ Table~\ref{tab:e1} shows that the baseline lost five of 450 requests in every ru
 	\label{tab:e2}
 	\centering
 	\footnotesize
+	\setlength{\tabcolsep}{3pt}
 	\begin{tabular}{|l|c|c|c|c|}
 		\hline
 		\textbf{Strategy} & \textbf{Rollout (s)} & \textbf{Failed} & \textbf{Downtime (s)} & \textbf{Mixed (s)} \\
@@ -331,21 +331,21 @@ AI-assisted tools (Claude, Anthropic) were used extensively in this project: for
 	\label{tab:ai_use}
 	\centering
 	\footnotesize
-	\begin{tabular}{|p{0.35\linewidth}|c|p{0.38\linewidth}|}
+	\begin{tabular}{|>{\raggedright\arraybackslash}p{0.40\linewidth}|c|>{\raggedright\arraybackslash}p{0.38\linewidth}|}
 		\hline
 		\textbf{Project Stage} & \textbf{Level} & \textbf{Brief Description} \\
 		\hline
-		Topic and question & 3 & Topic chosen by the student; question wording refined with AI \\
+		Topic and question & 3 & Student's topic; wording refined with AI \\
 		\hline
-		Literature and documentation search & 3 & AI suggested sources; student checked them \\
+		Literature and documentation search & 3 & AI suggested sources \\
 		\hline
-		Design, deployment, and configuration & 4 & AI wrote manifests and scripts; student ran and reviewed them \\
+		Design, deployment, and configuration & 4 & AI wrote manifests, scripts \\
 		\hline
-		Measurement, cost analysis, and modeling & 4 & AI wrote analysis and cost code; runs on student's machine \\
+		Measurement, cost analysis, and modeling & 4 & AI wrote analysis code; student ran it \\
 		\hline
-		Writing, editing, and LaTeX formatting & 5 & Report text and LaTeX drafted by AI, reviewed by student \\
+		Writing, editing, and LaTeX formatting & 5 & Text drafted by AI, reviewed by student \\
 		\hline
-		Interpretation, discussion, and conclusion & 5 & Drafted by AI from the measured data, reviewed by student \\
+		Interpretation, discussion, and conclusion & 5 & Drafted by AI, reviewed by student \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -368,12 +368,12 @@ AI-assisted tools (Claude, Anthropic) were used extensively in this project: for
 \label{app:code}
 Manifests, scripts, raw results and analysis code: \url{https://github.com/demcan15/sen421-k8s-orchestration}. Listing~\ref{lst:hardened} shows the probe and update settings of the hardened Deployment.
 
-\begin{lstlisting}[language=bash, caption={Hardened Deployment: probes and update strategy (excerpt of k8s/api-hardened.yaml)}, label={lst:hardened}]
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[language=bash, caption={Excerpt of k8s/api-hardened.yaml}, label={lst:hardened}]
 replicas: 3
 strategy:
   type: RollingUpdate
   rollingUpdate: { maxSurge: 1, maxUnavailable: 0 }
-...
 readinessProbe:
   httpGet: { path: /health, port: 8080 }
   periodSeconds: 1
@@ -385,5 +385,6 @@ livenessProbe:
 lifecycle:
   preStop: { exec: { command: ["sleep", "3"] } }
 \end{lstlisting}
+\end{minipage}
 
 \end{document}
